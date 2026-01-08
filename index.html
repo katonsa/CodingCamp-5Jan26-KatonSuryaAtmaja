@@ -5,15 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List - Katon</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
     <header>
+        <h1 class="text font-bold text-2xl">Todo List Website  - Katon</h1>
     </header>
 
     <main>
+        <section>
+            <form>
+                <input class="border rounded p-2" type="text" name="todo-input" id="todo-input" placeholder="Enter a new todo item">
+
+                <input class="border rounded p-2" type="date" name="todo-date" id="todo-date" placeholder="Enter due date">
+            </form>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onclick="addTodo()">Add Todo</button>
+        </section>
+
+
+        <section class="flex pt-2 justify-between">
+            <button class="border rounded p-2 bg-red-500 text-white" onclick="clearTodos()">Clear All Todos</button>
+
+            <button class="border rounded p-2 bg-blue-500 text-white">Filter Todos</button>
+        </section>
+
+        <section class="pt-2">
+            <header><h1 class="text-2xl font-semibold">List of todos</h1></header>
+
+            <ul class="pt-2" id="todo-list">
+                <li>No todos available</li>
+            </ul>
+        </section>
     </main>
 
+
     <footer>
+        <p class="text-center pt-4">&copy; 2026 Katon's Todo List</p>
     </footer>
 
     <script src="js/script.js"></script>
