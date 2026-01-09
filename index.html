@@ -21,14 +21,16 @@
                 <input class="border rounded p-2" type="date" name="todo-date" id="todo-date" placeholder="Enter due date">
             </form>
 
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onclick="addTodo()">Add Todo</button>
+            <!-- Button buat create todo -->
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" type="button" onclick="addTodo()">Add Todo</button>
         </section>
 
 
         <section class="flex pt-2 justify-between">
-            <button class="border rounded p-2 bg-red-500 text-white" onclick="clearTodos()">Clear All Todos</button>
-
-            <button class="border rounded p-2 bg-blue-500 text-white">Filter Todos</button>
+            <!-- Button buat clear todos -->
+            <button class="border rounded p-2 bg-red-500 text-white cursor-pointer" type="button" onclick="clearTodos()">Clear All Todos</button>
+            <!-- Button buat filter todos -->
+            <button class="border rounded p-2 bg-blue-500 text-white cursor-pointer" type="button" onclick="filterTodo()">Filter Todos</button>
         </section>
 
         <section class="pt-2">
