@@ -16,6 +16,7 @@ function addTodo() {
     const newTodo = {
       item: inputValue,
       date: dateValue,
+      completed: false,
     }
 
     todos.push(newTodo);
@@ -69,10 +70,16 @@ function renderTodos(emptyStateMessage = 'No todos available', list = todos) {
   todoList.innerHTML = '';
 
   if (list.length > 0) {
-    list.forEach((todo, _) => {
+    list.forEach((todo) => {
+      const completedClass = todo.completed ? 'line-through text-gray-400' : '';
+      const originalIndex = todos.indexOf(todo);
+
       todoList.innerHTML += `
-      <li>
-        <p class="text-2xl">${todo.item} <span class="text-sm" text-gray-500">(${todo.date})</span></p>
+      <li class="flex items-center gap-3">
+        <input type="checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleCompleted(${originalIndex}, this.checked)" class="h-4 w-4 cursor-pointer">
+        <p class="text-2xl ${completedClass}">
+          ${todo.item} <span class="text-sm text-gray-500">(${todo.date})</span>
+        </p>
       </li>
       `
     });
@@ -85,4 +92,13 @@ function renderTodos(emptyStateMessage = 'No todos available', list = todos) {
 function clearTodos() {
     todos.length = 0;
     renderTodos();
+}
+
+function toggleCompleted(index, checked) {
+  if (!todos[index]) {
+    return;
+  }
+
+  todos[index].completed = checked;
+  renderTodos();
 }
