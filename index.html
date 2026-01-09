@@ -8,35 +8,35 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <header class="mb-6">
-        <h1 class="text font-bold text-2xl">Todo List Website  - Katon</h1>
+<body class="bg-blue-50 text-gray-900">
+    <header class="text-center mt-10 mb-6">
+        <h1 class="text-3xl font-bold">Todo List Website  - Katon</h1>
     </header>
 
-    <main class="bg-gray-100 m-4 p-6 rounded-lg shadow">
+    <main class="bg-white border border-blue-100 shadow w-full max-w-3xl mx-auto p-6 rounded-lg">
         <section class="mb-4">
-            <form class="mb-2">
-                <input class="border bg-white rounded p-2" type="text" name="todo-input" id="todo-input" placeholder="Enter a new todo item">
+            <form class="mb-4">
+                <input class="border border-blue-200 bg-white rounded p-2 w-full mb-3" type="text" name="todo-input" id="todo-input" placeholder="Enter a new todo item">
 
-                <input class="border bg-white rounded p-2" type="date" name="todo-date" id="todo-date" placeholder="Enter due date">
+                <input class="border border-blue-200 bg-white rounded p-2 w-full" type="date" name="todo-date" id="todo-date" placeholder="Enter due date">
             </form>
 
             <!-- Button buat create todo -->
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" type="button" onclick="addTodo()">Add Todo</button>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer transition" type="button" onclick="addTodo()">Add Todo</button>
         </section>
 
 
-        <section class="flex pt-2 justify-between">
+        <section class="flex flex-col gap-3 pt-2 sm:flex-row sm:justify-between">
             <!-- Button buat clear todos -->
-            <button class="rounded p-2 bg-red-500 hover:bg-red-700 text-white cursor-pointer" type="button" onclick="clearTodos()">Clear All Todos</button>
+            <button class="rounded-lg px-4 py-2 bg-red-500 hover:bg-red-600 text-white cursor-pointer transition" type="button" onclick="clearTodos()">Clear All Todos</button>
             <!-- Button buat filter todos -->
-            <button class="rounded p-2 bg-blue-500 hover:bg-blue-700 text-white cursor-pointer" type="button" onclick="filterTodo()">Filter Todos</button>
+            <button class="rounded px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white cursor-pointer transition" type="button" onclick="filterTodo()">Filter Todos</button>
         </section>
 
         <section class="pt-2">
             <header>
-                <h1 class="text-2xl font-semibold">List of todos</h1>
-                <p class="text-gray-500 hidden" id="is-filtered-helper-text">Filtered by item text: "<span class="italic" id="filter-text"></span>" and date: "<span class="italic" id="filter-date"></span>"</p>
+                <h1 class="text-2xl font-semibold text-blue-800">List of todos</h1>
+                <p class="text-blue-700 hidden" id="is-filtered-helper-text">Filtered by item text: "<span class="italic" id="filter-text"></span>" and date: "<span class="italic" id="filter-date"></span>"</p>
             </header>
 
             <ul class="pt-2" id="todo-list">
@@ -46,8 +46,8 @@
     </main>
 
 
-    <footer class="mt-6">
-        <p class="text-center pt-4">&copy; 2026 Katon's Todo List</p>
+    <footer class="mt-8">
+        <p class="text-center text-sm text-blue-700 my-8">&copy; 2026 Katon's Todo List</p>
     </footer>
 
     <script src="js/script.js"></script>
