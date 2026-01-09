@@ -3,6 +3,10 @@ const todos = [];
 function addTodo() {
   const todoInput = document.getElementById('todo-input');
   const todoDate = document.getElementById('todo-date');
+  const isFilteredHelperText = document.getElementById('is-filtered-helper-text');
+  const filterText = document.getElementById('filter-text');
+  const filterDate = document.getElementById('filter-date');
+
   const inputValue = todoInput.value.trim().toLowerCase();
   const dateValue = todoDate.value.trim();
 
@@ -18,6 +22,10 @@ function addTodo() {
 
     console.log('Todo Added:', todos);
 
+    isFilteredHelperText.classList.remove('block');
+    isFilteredHelperText.classList.add('hidden');
+    filterText.innerText = '';
+    filterDate.innerText = '';
     renderTodos();
   }
 }
@@ -25,10 +33,19 @@ function addTodo() {
 function filterTodo() {
   const todoInput = document.getElementById('todo-input');
   const todoDate = document.getElementById('todo-date');
+  const isFilteredHelperText = document.getElementById('is-filtered-helper-text');
+  const filterText = document.getElementById('filter-text');
+  const filterDate = document.getElementById('filter-date');
+
   const inputValue = todoInput.value.trim().toLowerCase();
   const dateValue = todoDate.value.trim();
 
   if (inputValue === '' && dateValue === '') {
+    isFilteredHelperText.classList.remove('block');
+    isFilteredHelperText.classList.add('hidden');
+    filterText.innerText = '';
+    filterDate.innerText = '';
+
     renderTodos();
     return;
   }
@@ -38,6 +55,11 @@ function filterTodo() {
     const matchDate = dateValue === '' || todo.date === dateValue;
     return matchItem && matchDate;
   });
+
+  isFilteredHelperText.classList.remove('hidden');
+  isFilteredHelperText.classList.add('block');
+  filterText.innerText = inputValue;
+  filterDate.innerText = dateValue;
 
   renderTodos('No todos found', filteredTodos);
 }
